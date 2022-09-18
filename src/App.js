@@ -1,15 +1,11 @@
 import './App.css';
+import Header from './Header';
 
-function App() {
+const App = () => {
   return (
     <div className="app">
         <h1>Skylinked</h1>
-
-        {/* App Body */}
-        {/* Sidebar */}
-        {/* Feed */}
-        {/* Widgets */}
-
+        <Header />
     </div>
   );
 }
