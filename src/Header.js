@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div className ='header'>
           <div className ='header_left'>
-            <img src='' alt='' />
+            <img src='https://img.icons8.com/ios/344/skyrim.png' alt='' />
           </div> 
 
           <div className ='header_search'>
