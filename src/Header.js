@@ -1,5 +1,7 @@
 import './Header.css'
 import SearchIcon from '@mui/icons-material/Search';
+import HomeIcon from '@mui/icons-material/Home'
+import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount'
 import HeaderOption from './HeaderOption';
 
 const Header = () => {
@@ -15,8 +17,8 @@ const Header = () => {
           </div> 
 
           <div className ='header_right'>
-            <HeaderOption title='Home'/>
-            <HeaderOption />
+            <HeaderOption Icon={HomeIcon} title='Home'/>
+            <HeaderOption Icon={SupervisorAccountIcon} title='My Network'/>
           </div> 
     </div>
   )
