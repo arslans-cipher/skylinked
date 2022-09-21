@@ -1,8 +1,8 @@
 import './HeaderOption.css'
 
-const HeaderOption = () => {
+const HeaderOption = ({ title }) => {
   return  <div className='headerOption'>
-
+    { title }
   </div>
 }
 

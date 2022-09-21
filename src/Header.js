@@ -15,7 +15,7 @@ const Header = () => {
           </div> 
 
           <div className ='header_right'>
-            <HeaderOption />
+            <HeaderOption title='Home'/>
             <HeaderOption />
           </div> 
     </div>
