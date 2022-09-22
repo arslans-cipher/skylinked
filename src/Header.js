@@ -25,8 +25,7 @@ const Header = () => {
             <HeaderOption Icon={BusinessCenterIcon} title='Jobs'/>
             <HeaderOption Icon={ChatIcon} title='Messaging'/>
             <HeaderOption Icon={NotificationsIcon} title='Notifications'/>
-
-
+            <HeaderOption avatar='https://attackofthefanboy.com/wp-content/uploads/2014/06/The-Elder-Scrolls-V-Skyrim.jpg' title='pfp' />
           </div> 
     </div>
   )
