@@ -5,8 +5,9 @@ const Sidebar = () => {
   return (
     <div className='sidebar'>
       <div className="sidebar_top">
-        <img src='https://images.alphacoders.com/203/203543.jpg' alt='' />
+        <img src='' alt='' />
         <Avatar className='sidebar_avatar'/>
+        {/* https://images.alphacoders.com/203/203543.jpg' */}
         <h2>Arslan Ali</h2>
         <h4>Arslan@gmail.com</h4>
       </div>
