@@ -7,7 +7,7 @@ const Sidebar = () => {
       <div className="sidebar_top">
         <img src='' alt='' />
         <Avatar className='sidebar_avatar'/>
-        {/* https://images.alphacoders.com/203/203543.jpg' */}
+        {/* https://images.alphacoders.com/203/203543.jpg */}
         <h2>Arslan Ali</h2>
         <h4>Arslan@gmail.com</h4>
       </div>
