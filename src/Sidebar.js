@@ -6,13 +6,10 @@ const Sidebar = () => {
     <div className='sidebar'>
 
       <div className="sidebar_top">
-        
-        <img src='' alt='' />
+        <img src='https://images.alphacoders.com/203/203543.jpg' alt='' />
         <Avatar className='sidebar_avatar' />
-        {/* https://images.alphacoders.com/203/203543.jpg */}
         <h2>Arslan Ali</h2>
         <h4>arslan@gmail.com</h4>
-
       </div>
 
       <div className="sidebar_stats">
@@ -26,12 +23,12 @@ const Sidebar = () => {
           <p>Views On Post</p>
           <p className='sidebar_statNumber'>666</p>
         </div>
-
-        <div className="sidebar_bottom">
-          <p>Recent</p>
-        </div>
-
       </div>
+
+      <div className="sidebar_bottom">
+        <p>Recent</p>
+      </div>
+      
     </div>
   )
 }
