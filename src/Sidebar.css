@@ -91,5 +91,9 @@
   border-radius: 10px;
   cursor: pointer;
   color: black;
-  
+}
+
+.sidebar_hash {
+  margin-right: 10px;
+  margin-left: 5px;
 }
