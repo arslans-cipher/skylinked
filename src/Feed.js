@@ -7,7 +7,7 @@ const Feed = () => {
       <CreateIcon />
       <form>
         <input className='text' />
-          <button>Send</button>
+          <button type='submit'>Send</button>
       </form>
       <div className="feed_input"></div>
     </div>
