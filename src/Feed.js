@@ -4,6 +4,7 @@ import ImageIcon from '@mui/icons-material/Image'
 import SubscriptionsIcon from '@mui/icons-material/Subscriptions'
 import EventNoteIcon from '@mui/icons-material/Event'
 import CalenderViewDayIcon from '@mui/icons-material/CalendarViewDay'
+import Post from './Post'
 
 
 import InputOption from './InputOption'
@@ -26,7 +27,12 @@ const Feed = () => {
       </div>
     </div>
     {/* { Posts} */}
-    {/* <Posts /> */}
+    <Post 
+      name='Arslan' 
+      description='test' 
+      message='the message' 
+      photoURL=''
+      />
   </div>
 }
 
