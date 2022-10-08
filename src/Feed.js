@@ -25,6 +25,8 @@ const Feed = () => {
         <InputOption Icon={CalenderViewDayIcon} title='Photo' color='#7FC15E' />
       </div>
     </div>
+    {/* { Posts} */}
+    {/* <Posts /> */}
   </div>
 }
 
