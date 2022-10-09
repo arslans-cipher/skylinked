@@ -13,13 +13,17 @@ import InputOption from './InputOption'
 const Feed = () => {
   const [posts, setPosts] = useState([])
 
+  const sendPost = event => {
+    event.preventdefault()
+  }
+
   return <div className='feed'>
     <div className='feed_inputContainer'>
       <div className="feed_input">
         <CreateIcon />
         <form>
           <input className='text' />
-          <button type='submit'>Send</button>
+          <button onClick={sendPost} type='submit'>Send</button>
         </form>
       </div>
       <div className='feed_inputOptions'>
