@@ -7,7 +7,7 @@ import EventNoteIcon from '@mui/icons-material/Event'
 import CalenderViewDayIcon from '@mui/icons-material/CalendarViewDay'
 import Post from './Post'
 import InputOption from './InputOption'
-import { db } from './Firebase'
+import { db } from './firebase'
 
 const Feed = () => {
   const [posts, setPosts] = useState([])
