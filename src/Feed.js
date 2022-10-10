@@ -8,8 +8,10 @@ import CalenderViewDayIcon from '@mui/icons-material/CalendarViewDay'
 import Post from './Post'
 import InputOption from './InputOption'
 import { db } from './firebase'
+import firebase from './firebase'
 
 const Feed = () => {
+  const [input, setInput] = useState('')
   const [posts, setPosts] = useState([])
 
   useEffect(() => {
@@ -25,6 +27,13 @@ const Feed = () => {
 
   const sendPost = event => {
     event.preventdefault()
+    db.collection('posts').add({
+      name: 'this is my name',
+      description: 'this is a test',
+      message: input,
+      photoURL: '',
+      timestamp: firebase.firestore.FieldValue.serverTimeStamp()
+    })
   }
 
   return <div className='feed'>
@@ -32,7 +41,7 @@ const Feed = () => {
       <div className="feed_input">
         <CreateIcon />
         <form>
-          <input className='text' />
+          <input value={input} onChange={event => setInput(event.target.value)} type='text' />
           <button onClick={sendPost} type='submit'>Send</button>
         </form>
       </div>
@@ -43,13 +52,13 @@ const Feed = () => {
         <InputOption Icon={CalenderViewDayIcon} title='Photo' color='#7FC15E' />
       </div>
     </div>
-    {posts.map((post) => (<Post />) )}
-    <Post 
-      name='Arslan' 
-      description='test' 
-      message='the message' 
+    {posts.map((post) => (<Post />))}
+    <Post
+      name='Arslan'
+      description='test'
+      message='the message'
       photoURL=''
-      />
+    />
   </div>
 }
 
