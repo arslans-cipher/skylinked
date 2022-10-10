@@ -52,13 +52,14 @@ const Feed = () => {
         <InputOption Icon={CalenderViewDayIcon} title='Photo' color='#7FC15E' />
       </div>
     </div>
-    {posts.map((post) => (<Post />))}
-    <Post
-      name='Arslan'
-      description='test'
-      message='the message'
-      photoURL=''
-    />
+    {posts.map(({ id, data: { name, description, message, photoURL } }) => (
+      <Post
+        key={id}
+        name={name}
+        description={description}
+        message={message}
+        photoURL={photoURL}
+      />))}
   </div>
 }
 
