@@ -60,6 +60,7 @@ const Feed = () => {
         description={description}
         message={message}
         photoURL={photoURL}
+        timestamp={serverTimestamp()}
       />
     ))}
   </div>
