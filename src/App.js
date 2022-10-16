@@ -12,11 +12,15 @@ const App = () => {
         <h1>Skylinked</h1>
         <Header />
 
+        {!user ? (
+          <Login />
+        ) : ( 
         <div className='app_body'>
           <Sidebar />
           <Feed />
-        {/* Widgets */}
+
         </div>
+        )}
     </div>
   );
 }
