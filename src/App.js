@@ -9,7 +9,6 @@ const App = () => {
         <h1>Skylinked</h1>
         <Header />
 
-        {/* App Body */}
         <div className='app_body'>
           <Sidebar />
           <Feed />

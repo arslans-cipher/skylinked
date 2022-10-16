@@ -53,7 +53,7 @@ const Feed = () => {
       </div>
     </div>
 
-    {posts.map(({ id, data: { name, description, message, photoURL } }) => (
+    {posts.map(({ id, data: { name, description, message, photoURL, timestamp} }) => (
       <Post
         key={id}
         name={name}
