@@ -12,18 +12,16 @@ const App = () => {
     <div className="app">
         <h1>Skylinked</h1>
         <Header />
-
         {!user ? (
           <Login />
         ) : ( 
         <div className='app_body'>
           <Sidebar />
           <Feed />
-
         </div>
         )}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
