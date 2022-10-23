@@ -10,16 +10,16 @@ const App = () => {
   const user = useSelector(selectUser)
   return (
     <div className="app">
-        <h1>Skylinked</h1>
-        <Header />
-        {!user ? (
-          <Login />
-        ) : ( 
+      <h1>Skylinked</h1>
+      <Header />
+      {!user ? (
+        <Login />
+      ) : (
         <div className='app_body'>
           <Sidebar />
           <Feed />
         </div>
-        )}
+      )}
     </div>
   )
 }
