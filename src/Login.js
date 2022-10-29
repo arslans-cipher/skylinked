@@ -1,78 +1,113 @@
-import { useState } from 'react'
-import { auth } from './firebase'
-import './Login.css'
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { login } from "./features/userSlice";
+
+import { auth } from "./firebase";
+import "./Login.css";
 
 const Login = () => {
-  const [email, setEmail] = useState('')
-  const [name, setName] = useState('')
-  const [password, setPassword] = useState('')
-  const [profilePicture, setProfilePicture] = useState('')
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [profilePic, setProfilePic] = useState("");
+  const dispatch = useDispatch();
 
+  const loginHandler = async (e) => {
+    e.preventDefault();
+    try {
+      const userAuth = await auth.signInWithEmailAndPassword(email, password);
 
-  const registerHandler = () => {
+      dispatch(
+        login({
+          email: userAuth.user.email,
+          uid: userAuth.user.uid,
+          displayName: userAuth.user.displayName,
+          photoUrl: userAuth.user.photoURL,
+        })
+      );
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  const registerHandler = async () => {
     if (!name) {
-      return alert('Please enter a full name')
+      return alert("Please enter a full name!");
     }
 
-    auth.createUserWithEmailAndPassword(email, password)
-    .then(userAuth() => {
-      userAuth.user.updateProfile({
+    try {
+      const userAuth = await auth.createUserWithEmailAndPassword(
+        email,
+        password
+      );
+
+      await userAuth.user.updateProfile({
         displayName: name,
-        profileURL: profilePicture
-      }) 
-    })
-  }
+        photoUrl: profilePic,
+      });
 
-  const loginHandler = event => {
-    event.preventDefault()
-  }
+      dispatch(
+        login({
+          email: userAuth.user.email,
+          uid: userAuth.user.uid,
+          displayName: name,
+          photoUrl: profilePic,
+        })
+      );
+    } catch (error) {
+      console.log(error);
+      alert(error);
+    }
+  };
 
-  return <div className='login'>
-    <img src="https://news.hitb.org/sites/default/files/styles/large/public/field/image/500px-LinkedIn_Logo.svg__1.png"
-      alt="Linkedin main logo" />
-
-    <form>
-      <input
-        placeholder="Full name (required for register)"
-        type="text"
-        value={name}
-        onChange={(event) => setName(event.target.value)}
+  return (
+    <div className="login">
+      <img
+        src="https://news.hitb.org/sites/default/files/styles/large/public/field/image/500px-LinkedIn_Logo.svg__1.png"
+        alt="Linkedin main logo"
       />
 
-      <input
-        placeholder="Profile pic URL (optional)"
-        type="text"
-        value={profilePicture}
-        onChange={(event) => setProfilePicture(event.target.value)}
-      />
+      <form>
+        <input
+          placeholder="Full name (required for register)"
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
 
-      <input
-        placeholder="Email"
-        type="email"
-        value={email}
-        onChange={(event) => setEmail(event.target.value)}
-      />
+        <input
+          placeholder="Profile pic URL (optional)"
+          type="text"
+          value={profilePic}
+          onChange={(e) => setProfilePic(e.target.value)}
+        />
 
-      <input
-        placeholder="Password"
-        type="password"
-        value={password}
-        onChange={(event) => setPassword(event.target.value)}
-      />
+        <input
+          placeholder="Email"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          placeholder="Password"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
 
-      <button type="submit" onClick={loginHandler}>
-        Sign In
-      </button>
-    </form>
+        <button type="submit" onClick={loginHandler}>
+          Sign In
+        </button>
+      </form>
 
-    <p>
-      Not a member?{" "}
-      <span className="login__register" onClick={registerHandler}>
-        Register Now
-      </span>
-    </p>
+      <p>
+        Not a member?{" "}
+        <span className="login__register" onClick={registerHandler}>
+          Register Now
+        </span>
+      </p>
+    </div>
+  );
+};
 
-  </div>
-}
-
-export default Login
+export default Login;
