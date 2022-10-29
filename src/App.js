@@ -5,9 +5,32 @@ import Feed from './Feed'
 import Login from './Login'
 import { useSelector } from 'react-redux'
 import { selectUser } from './features/userSlice'
+import { useEffect } from 'react'
+import { auth } from './firebase'
+import { useDispatch } from 'react-redux'
 
 const App = () => {
-  const user = useSelector(selectUser)
+  
+  const userState = useSelector(selectUser);
+  const { user } = userState;
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    auth.onAuthStateChanged((userAuth) => {
+      if (userAuth) {
+        dispatch(
+          login({
+            email: userAuth.email,
+            uid: userAuth.uid,
+            displayName: userAuth.displayName,
+            photoUrl: userAuth.photoURL,
+          })
+        );
+      } else {
+        dispatch(logout());
+      }
+    });
+
   return (
     <div className="app">
       <h1>Skylinked</h1>
