@@ -1,16 +1,14 @@
-import './App.css'
-import Header from './Header'
-import Sidebar from './Sidebar'
-import Feed from './Feed'
-import Login from './Login'
-import { useSelector } from 'react-redux'
-import { selectUser } from './features/userSlice'
-import { useEffect } from 'react'
-import { auth } from './firebase'
-import { useDispatch } from 'react-redux'
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import "./App.css";
+import { login, logout, selectUser } from "./features/userSlice";
+import Feed from "./Feed";
+import { auth } from "./firebase";
+import Header from "./Header";
+import Login from "./Login";
+import Sidebar from "./Sidebar";
 
-const App = () => {
-  
+function App() {
   const userState = useSelector(selectUser);
   const { user } = userState;
   const dispatch = useDispatch();
@@ -31,20 +29,23 @@ const App = () => {
       }
     });
 
+    //eslint-disable-next-line
+  }, []);
+
   return (
     <div className="app">
-      <h1>Skylinked</h1>
       <Header />
+
       {!user ? (
         <Login />
       ) : (
-        <div className='app_body'>
+        <div className="app__body">
           <Sidebar />
           <Feed />
         </div>
       )}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
